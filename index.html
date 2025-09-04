@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Filip Ratiu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="page">
+    <div id="intro-screen">
+      <span id="intro-text"></span>
+      <a class="skip-btn" id="skip-btn">Skip</a>
+    </div>
+    <div id="home-screen" style="display: none;">
+      <!-- Navigation bar -->
+      <nav class="navbar">
+        <div class="nav-left">
+          <a href="#home" id="home-link">Filip Ratiu</a>
+        </div>
+        <div class="nav-right">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <!-- Hero section -->
+      <section id="home" class="hero">
+        <div class="hero-copy reveal">
+          <span class="pill"><span class="dot" aria-hidden="true"></span> Now: Available for a 2026 Winter Co-op
+            Placement</span>
+          <h1 class="header">Welcome to my work!</h1>
+          <p class="sub">Double degree student bridging software with business while pursuing an AI specialization.</p>
+          <div class="shortcuts">
+            <a class="btn primary" href="#projects">See projects →</a>
+            <a class="btn ghost" href="#experience">Work history</a>
+            <a class="btn link" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-2">
+          <div class="avatar">
+            <img src="images/site-character.png" alt="Site Character" class="character" />
+            <div class="eye eye-left">
+              <div class="pupil"></div>
+            </div>
+            <div class="eye eye-right">
+              <div class="pupil"></div>
+            </div>
+          </div>
+      </section>
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="about-profile-card">
+          <div class="about-profile-photo">
+            <img class="about-profile-img" src="images/personal-photo.jpg" alt="Filip Ratiu photo" />
+          </div>
+          <div class="about-profile-short">
+            <h3 class="about-profile-name">Filip Ratiu</h3>
+            <p class="about-profile-role">Software Engineer</p>
+            <p class="about-profile-location">Waterloo, ON</p>
+            <!-- <a class="download-btn primary about-cv" href="Filip_Ratiu_Resume.pdf" download>
+              <span>Download CV</span>
+            </a> -->
+          </div>
+        </div>
+        <div class="about-info">
+          <h2 class="about-title">About Me</h2>
+          <p class="about-description">I am a third year double degree student studying Computer Science and Business
+            Administration. I love designing and developing unique UI/UX experiences and discovering new use cases for
+            technology, especially automation related. I work across many programming languages, but I
+            particularly enjoy C++ for its efficiency and my understanding of the compiler and CPU execution
+            of the language.
+          </p>
+          <p class="about-description">
+            I also have a heart for teaching and sharing knowledge. I teach 12 piano students through the Royal
+            Conservatory of Music
+            (RCM) and am building RCM-aligned apps to give them tailored, take-home learning. I'm passionate about
+            solving problems at the business-technology intersection.
+          </p>
+          <div class="about-meta">
+            <section class="about-block">
+              <h3 class="about-block-title">Interests</h3>
+              <ul class="check-list">
+                <li>Software Development</li>
+                <li>Artificial Intelligence</li>
+                <li>Computer Architecture</li>
+                <li>Classical Piano</li>
+                <li>Volleyball, Golf, Fishing</li>
+                <li>Theology</li>
+                <li>Pittsburgh Penguins</li>
+              </ul>
+            </section>
+
+            <section class="about-block">
+              <h3 class="about-block-title">Education</h3>
+              <ul class="edu-list">
+                <li>
+                  <p class="degree">BCS Computer Science</p>
+                  <p class="school">University of Waterloo</p>
+                </li>
+                <li>
+                  <p class="degree">BBA Business Administration</p>
+                  <p class="school">Wilfrid Laurier University</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+        <div class="technical-skills">
+          <span class="box"> Languages: C/C++, C#, Java, JavaScript, Kotlin, Python, SQL, HTML, XML, CSS, Racket,
+            R, MIPS, ARM v8 <br> Technologies: VS, VS Code, Android Studio, Git, SQL Management Studio, PowerShell,
+            Linux (Ubuntu) Shell, PRTG Monitor, Rabbit MQ, TensorFlow, ImageNet, .NET, LaTex, Docker, MS Office (Word,
+            Outlook, Excel, PowerPoint) </span>
+        </div>
+      </section>
+      <!-- Experience Section -->
+      <section id="experience" class="experience">
+        <h1>Where I've Worked</h1>
+        <div class="experience-list">
+          <a class="experience-item" href="https://www.brocksolutions.com/" target="_blank" rel="noopener noreferrer">
+            <div class="experience-duration">
+              <p>Jan 2025 - May 2025</p>
+            </div>
+            <div class="experience-info">
+              <h2 class="experience-title">Software Developer Co-op</h2>
+              <p class="experience-company">Brock Solutions</p>
+              <ul class="experience-bullets">
+                <li>Upgraded the SmartSort BHS at SLC international Airport from v10.5 to v14.0 to handle oversized bags
+                  by migrating & configuring operational and data-warehouse databases (SQL Server/SSMS), automating
+                  deployments (PowerShell) and customizing SmartSort services (C#)</li>
+                <li>Wrote/debugged T-SQL stored procedures for baggage tracking/reporting, fixed CBIS logic bugs
+                  (double-counting) to improve throughput metric accuracy</li>
+                <li>Executed FAT validation checks, verifying new configurations in the customer-facing web client meet
+                  requirements prior to deployment</li>
+                <li>Traced end-to-end data flows across SmartSort services (e.g. Configuration Publisher, engines
+                  SMH/SAM/CoCoS) to troubleshoot defects and enforce architectural consistency</li>
+                <li>Worked daily with software, HMI and controls engineers to integrate new field devices (e.g.
+                  throughput counters, ATRs, EDS, diverters) into SLC’s BHS expansion, routinely resolving mismatched
+                  device configurations uncovered during controls testing.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">T-SQL</span>
+                <span class="chip">SQL Server/SSMS</span>
+                <span class="chip">C#</span>
+                <span class="chip">PowerShell</span>
+                <span class="chip">VS/VS Code</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <h1 class="project-title">Personal Projects</h1>
+        <div class="project-scroller" role="group">
+          <a class="project-card" href="https://github.com/fratiu/WLP4-Compiler" target="_blank"
+            rel="noopener noreferrer">
+            <div class="project-card-thumbnail">
+              <img src="images/thumbnail1.png" alt="WLP4 Compiler Thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3 class="project-card-title">WLP4 Compiler</h3>
+              <p class="project-card-description">A compiler that translates a subset of the C programming langauge into
+                MIPS assembly code via analysis (scanning, parsing and context-sensitive analysis) and synthesis (code
+                generation) while utilizing a homegrown assembler.</p>
+              <div class="chips">
+                <span class="project-chip">C++</span>
+                <span class="project-chip">MIPS</span>
+                <span class="project-chip">Maximal munch algorithms</span>
+              </div>
+            </div>
+          </a>
+          <a class="project-card" href="https://github.com/fratiu/WLP4-Compiler" target="_blank"
+            rel="noopener noreferrer">
+            <div class="project-card-thumbnail">
+              <div class="avatar">
+                <img src="images/site-character.png" alt="Site Character" class="character" />
+                <div class="eye eye-left">
+                  <div class="pupil"></div>
+                </div>
+                <div class="eye eye-right">
+                  <div class="pupil"></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card-info">
+              <h3 class="project-card-title">Personal Website</h3>
+              <p class="project-card-description">An iteractive personal website that showcases my portfolio and
+                creative thought.</p>
+              <div class="chips">
+                <span class="project-chip">HTML</span>
+                <span class="project-chip">CSS</span>
+                <span class="project-chip">JavaScript</span>
+                <span class="project-chip">UI/UX design</span>
+              </div>
+            </div>
+          </a>
+          <a class="project-card in-progress" href="https://github.com/fratiu/WLP4-Compiler" target="_blank"
+            rel="noopener noreferrer">
+            <div class="project-card-thumbnail blurred">
+              <img src="images/thumbnail5.png" alt="WLP4 Compiler Thumbnail">
+            </div>
+            <div class="project-card-info blurred">
+              <h3 class="project-card-title">Transposer</h3>
+              <p class="project-card-description">A mobile app that allows users to submit images/photos of sheet music
+                and transpose the music into their desired key in a new pdf.</p>
+              <div class="chips">
+                <span class="project-chip">Kotlin</span>
+                <span class="project-chip">XML</span>
+                <span class="project-chip">Python</span>
+                <span class="project-chip">TensorFlow</span>
+                <span class="project-chip">Machine Learning</span>
+              </div>
+            </div>
+          </a>
+          <a class="project-card in-progress" href="https://github.com/fratiu/WLP4-Compiler" target="_blank"
+            rel="noopener noreferrer">
+            <div class="project-card-thumbnail blurred">
+              <img src="images/thumbnail6.png" alt="WLP4 Compiler Thumbnail">
+            </div>
+            <div class="project-card-info blurred">
+              <h3 class="project-card-title">RCM Music Learning</h3>
+              <p class="project-card-description">A mobile app that provides tailored music theory questions and ear
+                training specific to each level of the RCM piano curriculum.</p>
+              <div class="chips">
+                <span class="project-chip">Kotlin</span>
+                <span class="project-chip">XML</span>
+                <span class="project-chip">Music Theory</span>
+              </div>
+            </div>
+          </a>
+          <a class="project-card" href="https://github.com/fratiu/WLP4-Compiler" target="_blank"
+            rel="noopener noreferrer">
+            <div class="project-card-thumbnail">
+              <img src="images/thumbnail2.png" alt="WLP4 Compiler Thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3 class="project-card-title">Tank Madness</h3>
+              <p class="project-card-description">A 2D tank warfare game where the objective is to destroy opposition
+                warecraft before it destroys you.</p>
+              <div class="chips">
+                <span class="project-chip">Java</span>
+                <span class="project-chip">Collision detection</span>
+                <span class="project-chip">Game development</span>
+              </div>
+            </div>
+          </a>
+          <a class="project-card" href="https://github.com/fratiu/WLP4-Compiler" target="_blank"
+            rel="noopener noreferrer">
+            <div class="project-card-thumbnail">
+              <img src="images/thumbnail3.png" alt="WLP4 Compiler Thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3 class="project-card-title">DouDizhu</h3>
+              <p class="project-card-description">A climbing card game where the user battles the landlord using a 54
+                card deck.</p>
+              <div class="chips">
+                <span class="project-chip">Racket</span>
+                <span class="project-chip">Functional programming</span>
+                <span class="project-chip">Recursion</span>
+              </div>
+            </div>
+          </a>
+          <a class="project-card" href="https://github.com/fratiu/WLP4-Compiler" target="_blank"
+            rel="noopener noreferrer">
+            <div class="project-card-thumbnail">
+              <img src="images/thumbnail4.png" alt="WLP4 Compiler Thumbnail">
+            </div>
+            <div class="project-card-info">
+              <h3 class="project-card-title">CatchGame</h3>
+              <p class="project-card-description">A daleks catch game where the objective of the doctor/green peg is to
+                crash all of the daleks before being caught.</p>
+              <div class="chips">
+                <span class="project-chip">Java</span>
+                <span class="project-chip">Game strategy</span>
+                <span class="project-chip">GUI</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <p class="contact-message">Feel free to reach out! I'm currently in my 3A study term and looking for a 4-month
+          2026 Winter co-op placement. Whether you'd like to connect about future opportunities or just have a chat, I'd
+          love to hear from you!</p>
+        <div class="say-hello-btn">
+          <a href="mailto:ratiu17filip@gmail.com" class="contact-chip">Say Hello</a>
+        </div>
+        <!-- <a href="https://www.linkedin.com/in/filip-ratiu/" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <img src="images/instagram-icon.jpg" alt="LinkedIn Icon" class="social-icon-img">
+        </a> -->
+      </section>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="eyes.js"></script>
+</body>
+
+</html>
