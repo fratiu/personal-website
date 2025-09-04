@@ -109,5 +109,5 @@ document.getElementById('skip-btn').addEventListener("click", () => {
 
 
 
-// type(() => showScreen('intro-screen', 'home-screen'));
-showScreen('intro-screen', 'home-screen');
+type(() => showScreen('intro-screen', 'home-screen'));
+// showScreen('intro-screen', 'home-screen');
