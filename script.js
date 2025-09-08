@@ -115,3 +115,4 @@ type(() => showScreen('intro-screen', 'home-screen'));
 const user = "ratiu17filip", domain = "gmail.com";
 const a = document.getElementById("email");
 a.href = "mailto:" + user + "@" + domain;
+

@@ -1,0 +1,7 @@
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/check-password"
+  to = "/.netlify/functions/check-password"
+  status = 200

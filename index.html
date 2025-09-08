@@ -279,6 +279,16 @@
             </div>
           </a>
         </div>
+        <div class="protected-video">
+          <div class="pill">
+            <span class="dot" aria-hidden="true"></span>
+            <label for="password">
+              Enter password to access video demonstration and code walkthrough of WLP4 project:
+            </label>
+            <input type="password" id="password" class="password" placeholder="Enter password">
+            <button id="unlock-btn" class="unlock-btn">Unlock</button>
+          </div>
+        </div>
       </section>
       <!-- Contact Section -->
       <section id="contact" class="contact">
@@ -294,9 +304,13 @@
         </a> -->
       </section>
     </div>
+    <div id="video-screen" style="display: none;">
+
+    </div>
   </main>
   <script src="script.js"></script>
   <script src="eyes.js"></script>
+  <script src="password.js" defer></script>
 </body>
 
 </html>

@@ -809,6 +809,21 @@ a.experience-item:visited {
   align-content: center;
 }
 
+.password-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.password-box label {
+  white-space: nowrap;
+}
+
+.password-box input {
+  flex: 1;
+  max-width: 300px;
+}
+
 
 
 .contact {
