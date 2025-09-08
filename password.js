@@ -1,3 +1,5 @@
+import { showScreen } from './script.js';
+
 async function checkPassword(pw) {
   const res = await fetch('/api/check-password', {
     method: 'POST',
@@ -13,17 +15,16 @@ async function checkPassword(pw) {
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('unlock-btn');
   const input = document.getElementById('password');
-  const protectedEl = document.getElementById('video-screen');
 
   // Optional: auto-show if cookie from earlier session exists (simple check)
   if (document.cookie.includes('wlp4_access=1')) {
-    protectedEl.style.display = 'block';
+    showScreen('home-screen', 'video-screen');
   }
 
   btn.addEventListener('click', async () => {
     const ok = await checkPassword(input.value);
     if (ok) {
-      protectedEl.style.display = 'block';
+      showScreen('home-screen', 'video-screen');
     } else {
       alert('Incorrect password.');
     }
