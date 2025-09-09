@@ -1,5 +1,16 @@
 import { showScreen } from './lib/showScreen.js';
 
+function currentScreenId() {
+  // adjust the list if you add more screens
+  const ids = ['lock-screen', 'home-screen', 'video-screen'];
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (el && getComputedStyle(el).display !== 'none') return id;
+  }
+  // default fallback
+  return 'home-screen';
+}
+
 async function checkPassword(pw) {
   const res = await fetch('/api/check-password', {
     method: 'POST',
@@ -22,21 +33,18 @@ async function fetchSignedVideoUrl() {
   return data.url;
 }
 
-async function onUnlockSuccess() {
-  showScreen('home-screen', 'video-screen');
-  await loadPrivateVideo();
-}
-
-if (document.cookie.includes('wlp4_access=1')) {
-  showScreen('home-screen', 'video-screen');
-  loadPrivateVideo().catch(console.error);
-}
 
 async function loadPrivateVideo() {
   const url = await fetchSignedVideoUrl();
   const vid = document.getElementById('wlp4Video');
   vid.src = url;
   vid.load();            // ready to play
+}
+
+async function goToVideoSreen() {
+  const old = currentScreenId();
+  showScreen(old, 'video-screen');
+  await loadPrivateVideo();
 }
 
 
@@ -47,9 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // If the server already set the access cookie in a prior session, auto-load
   if (document.cookie.includes('wlp4_access=1')) {
     // best-effort load; if it fails they'll still see home-screen
-    loadPrivateVideo().then(() => {
-      showScreen('home-screen', 'video-screen');
-    }).catch(console.error);
+    goToVideoSreen().catch(console.error);
   }
 
   btn?.addEventListener('click', async () => {
