@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // If the server already set the access cookie in a prior session, auto-load
   if (document.cookie.includes('wlp4_access=1')) {
     // best-effort load; if it fails they'll still see home-screen
-    goToVideoSreen().catch(console.error);
+    goToVideoScreen().catch(console.error);
   }
 
   btn?.addEventListener('click', async () => {
