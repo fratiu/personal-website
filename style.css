@@ -923,3 +923,16 @@ a.experience-item:visited {
     transform: none
   }
 }
+
+
+.wlp4Video {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(10, 15, 18, .9), rgba(10, 15, 18, .7));
+  box-shadow: 0 8px 40px rgba(0, 170, 255, .14);
+  max-width: min(720px, 90vw);
+  margin: 0 auto;
+  display: block;
+}
