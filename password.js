@@ -1,4 +1,4 @@
-// import { showScreen } from './script.js';
+import { showScreen } from './script.js';
 
 async function checkPassword(pw) {
   const res = await fetch('/api/check-password', {
@@ -12,21 +12,21 @@ async function checkPassword(pw) {
   return !!data.ok;
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const btn = document.getElementById('unlock-btn');
-//   const input = document.getElementById('password');
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('unlock-btn');
+  const input = document.getElementById('password');
 
-//   // Optional: auto-show if cookie from earlier session exists (simple check)
-//   if (document.cookie.includes('wlp4_access=1')) {
-//     showScreen('home-screen', 'video-screen');
-//   }
+  // Optional: auto-show if cookie from earlier session exists (simple check)
+  if (document.cookie.includes('wlp4_access=1')) {
+    showScreen('home-screen', 'video-screen');
+  }
 
-//   btn.addEventListener('click', async () => {
-//     const ok = await checkPassword(input.value);
-//     if (ok) {
-//       showScreen('home-screen', 'video-screen');
-//     } else {
-//       alert('Incorrect password.');
-//     }
-//   });
-// });
+  btn.addEventListener('click', async () => {
+    const ok = await checkPassword(input.value);
+    if (ok) {
+      showScreen('home-screen', 'video-screen');
+    } else {
+      alert('Incorrect password.');
+    }
+  });
+});
