@@ -1,3 +1,5 @@
+import { showScreen } from './lib/showScreen.js';
+
 const controller = new AbortController();
 const { signal } = controller;
 let typingTimeout = null;
@@ -21,12 +23,6 @@ let delay = 100;
 let completeTyping = false;
 
 
-export function showScreen(oldScreen, newScreen) {
-  //console.log("just checking it's the right id: " + id);
-  document.getElementById(oldScreen).style.display = 'none';
-  document.getElementById(newScreen).style.display = 'block';
-  //console.log("just checking it's the right id: " + id);
-}
 
 function wait(ms, signal) {
   return new Promise((resolve, reject) => {
