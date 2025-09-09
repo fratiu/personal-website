@@ -27,6 +27,11 @@ async function onUnlockSuccess() {
   await loadPrivateVideo();
 }
 
+if (document.cookie.includes('wlp4_access=1')) {
+  showScreen('home-screen', 'video-screen');
+  loadPrivateVideo().catch(console.error);
+}
+
 async function loadPrivateVideo() {
   const url = await fetchSignedVideoUrl();
   const vid = document.getElementById('wlp4Video');

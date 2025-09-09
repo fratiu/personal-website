@@ -923,5 +923,3 @@ a.experience-item:visited {
     transform: none
   }
 }
-
-#video-screen[style*="display: none"] video { display: none; }
