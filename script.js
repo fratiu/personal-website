@@ -38,6 +38,9 @@ function wait(ms, signal) {
 }
 
 function type(onComplete) {
+  if (document.getElementById('home-screen').style.display === 'block' || document.getElementById('video-screen').style.display === 'block') {
+    return;
+  }
 
   if (completeTyping) {
     classTarget.classList.add("done");
@@ -106,7 +109,9 @@ document.getElementById('skip-btn').addEventListener("click", () => {
 
 
 
+
 type(() => showScreen('intro-screen', 'home-screen'));
+
 // showScreen('intro-screen', 'home-screen');
 
 const user = "ratiu17filip", domain = "gmail.com";
