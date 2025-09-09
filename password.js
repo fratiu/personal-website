@@ -12,24 +12,6 @@ async function checkPassword(pw) {
   return !!data.ok;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('unlock-btn');
-  const input = document.getElementById('password');
-
-  // Optional: auto-show if cookie from earlier session exists (simple check)
-  if (document.cookie.includes('wlp4_access=1')) {
-    showScreen('home-screen', 'video-screen');
-  }
-
-  btn.addEventListener('click', async () => {
-    const ok = await checkPassword(input.value);
-    if (ok) {
-      showScreen('home-screen', 'video-screen');
-    } else {
-      alert('Incorrect password.');
-    }
-  });
-});
 
 
 async function fetchSignedVideoUrl() {
@@ -40,6 +22,11 @@ async function fetchSignedVideoUrl() {
   return data.url;
 }
 
+async function onUnlockSuccess() {
+  await loadPrivateVideo();
+  showScreen('home-screen', 'video-screen');
+}
+
 async function loadPrivateVideo() {
   const url = await fetchSignedVideoUrl();
   const vid = document.getElementById('wlp4Video');
@@ -47,15 +34,28 @@ async function loadPrivateVideo() {
   vid.load();            // ready to play
 }
 
-async function onUnlockSuccess() {
-  await loadPrivateVideo();
-  showScreen('home-screen', 'video-screen');
-}
 
-document.addEventListener('DOMContentLoaded', async () => {
-  if (localStorage.getItem('wlp4_access') === '1') {
-    // showScreen('locked','protected');
-    try { await loadPrivateVideo(); } catch (e) { console.error(e); }
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('unlock-btn');
+  const input = document.getElementById('password');
+
+  // If the server already set the access cookie in a prior session, auto-load
+  if (document.cookie.includes('wlp4_access=1')) {
+    // best-effort load; if it fails they'll still see home-screen
+    loadPrivateVideo().then(() => {
+      showScreen('home-screen', 'video-screen');
+    }).catch(console.error);
   }
-});
 
+  btn?.addEventListener('click', async () => {
+    try {
+      const ok = await checkPassword(input.value);
+      if (!ok) return alert('Incorrect password.');
+      // cookie will be set by /api/check-password response
+      await onUnlockSuccess();
+    } catch (e) {
+      console.error(e);
+      alert('Sorry—something went wrong unlocking the video.');
+    }
+  });
+});

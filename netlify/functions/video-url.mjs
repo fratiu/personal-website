@@ -9,8 +9,21 @@ const s3 = new S3Client({
   },
 });
 
+const CORS = {
+  "Access-Control-Allow-Origin": "https://filipratiu.com",
+  "Access-Control-Allow-Credentials": "true",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "GET,OPTIONS",
+  "Cache-Control": "no-store",
+  "Content-Type": "application/json",
+};
+
 export async function handler(event) {
-  // simple gate: require the cookie set after password check
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 204, headers: CORS };
+  }
+  
+    // simple gate: require the cookie set after password check
   const cookie = event.headers.cookie || "";
   const hasAccess = cookie.split(/;\s*/).some(c => c.startsWith("wlp4_access=1"));
   if (!hasAccess) return { statusCode: 401, body: '{"ok":false}' };
@@ -18,8 +31,12 @@ export async function handler(event) {
   const Bucket = process.env.S3_BUCKET;
   const Key = process.env.S3_KEY;
 
+  if (!Bucket || !Key) {
+    return { statusCode: 500, headers: CORS, body: '{"ok":false,"err":"missing env"}' };
+  }
+
   try {
-    const cmd = new GetObjectCommand({ Bucket, Key });
+    const cmd = new GetObjectCommand({ Bucket, Key, ResponseContentType: "video/mp4" });
     // await MUST be inside the handler
     const url = await getSignedUrl(s3, cmd, { expiresIn: 3600 }); // 1 hr
     return {
