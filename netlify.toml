@@ -5,3 +5,8 @@
   from = "/api/check-password"
   to = "/.netlify/functions/check-password"
   status = 200
+
+[[redirects]]
+  from = "/api/video-url"
+  to   = "/.netlify/functions/video-url"
+  status = 200
