@@ -925,9 +925,8 @@ a.experience-item:visited {
 }
 
 #video-screen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   min-height: 100vh;
   padding: 24px;
   box-sizing: border-box;
