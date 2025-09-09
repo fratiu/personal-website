@@ -33,6 +33,11 @@ async function fetchSignedVideoUrl() {
   return data.url;
 }
 
+async function onUnlockSuccess() {
+  showScreen('home-screen', 'video-screen');
+  await loadPrivateVideo();
+}
+
 
 async function loadPrivateVideo() {
   const url = await fetchSignedVideoUrl();
