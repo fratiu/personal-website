@@ -2,7 +2,7 @@ import { showScreen } from './lib/showScreen.js';
 
 function currentScreenId() {
   // adjust the list if you add more screens
-  const ids = ['lock-screen', 'home-screen', 'video-screen'];
+  const ids = ['intro-screen', 'home-screen', 'video-screen'];
   for (const id of ids) {
     const el = document.getElementById(id);
     if (el && getComputedStyle(el).display !== 'none') return id;
@@ -46,7 +46,7 @@ async function loadPrivateVideo() {
   vid.load();            // ready to play
 }
 
-async function goToVideoSreen() {
+async function goToVideoScreen() {
   const old = currentScreenId();
   showScreen(old, 'video-screen');
   await loadPrivateVideo();
@@ -74,4 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Sorry—something went wrong unlocking the video.');
     }
   });
+});
+
+document.getElementById('back-btn').addEventListener("click", () => {
+  const old = currentScreenId();
+  showScreen(old, 'home-screen');
+  wlp4Video.pause();
+  wlp4_access = false;  
 });

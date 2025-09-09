@@ -100,12 +100,13 @@ function type(onComplete) {
 document.getElementById('skip-btn').addEventListener("click", () => {
   controller.abort();
   if (typingTimeout) clearTimeout(typingTimeout);
+  classTarget.classList.add("done");
   showScreen("intro-screen", "home-screen");
 }, { once: true });
 
 
 
-type(() => showScreen('intro-screen', 'home-screen'));
+// type(() => showScreen('intro-screen', 'home-screen'));
 // showScreen('intro-screen', 'home-screen');
 
 const user = "ratiu17filip", domain = "gmail.com";
