@@ -23,8 +23,8 @@ async function fetchSignedVideoUrl() {
 }
 
 async function onUnlockSuccess() {
-  await loadPrivateVideo();
   showScreen('home-screen', 'video-screen');
+  await loadPrivateVideo();
 }
 
 async function loadPrivateVideo() {
