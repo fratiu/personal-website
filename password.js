@@ -30,3 +30,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+async function fetchSignedVideoUrl() {
+  const res = await fetch('/api/video-url', { credentials: 'include' });
+  if (!res.ok) throw new Error('failed to get signed URL');
+  const data = await res.json();
+  if (!data.ok || !data.url) throw new Error('no URL returned');
+  return data.url;
+}
+
+async function loadPrivateVideo() {
+  const url = await fetchSignedVideoUrl();
+  const vid = document.getElementById('wlp4Video');
+  vid.src = url;
+  vid.load();            // ready to play
+}
+
+async function onUnlockSuccess() {
+  await loadPrivateVideo();
+  showScreen('home-screen', 'video-screen');
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  if (localStorage.getItem('wlp4_access') === '1') {
+    // showScreen('locked','protected');
+    try { await loadPrivateVideo(); } catch (e) { console.error(e); }
+  }
+});
+
