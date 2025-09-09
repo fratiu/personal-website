@@ -1,4 +1,4 @@
-import { showScreen } from './script.js';
+import { showScreen } from './lib/showScreen.js';
 
 async function checkPassword(pw) {
   const res = await fetch('/api/check-password', {
